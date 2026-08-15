@@ -1,0 +1,1 @@
+buildscript {\n    repositories {\n        google()\n        mavenCentral()\n    }\n    dependencies {\n        classpath "com.android.tools.build:gradle:8.3.2"\n        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22"\n    }\n}\nallprojects {\n    repositories {\n        google()\n        mavenCentral()\n    }\n}\n
