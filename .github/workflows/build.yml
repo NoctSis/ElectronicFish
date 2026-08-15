@@ -1,4 +1,5 @@
 name: Build Android APK
+
 on:
   push:
     branches: [ main ]
@@ -18,8 +19,9 @@ jobs:
           distribution: "temurin"
           java-version: "17"
 
+      # ★ 关键改动：用 bash 解释器运行 gradlew
       - name: Build APK
-        run: ./gradlew assembleDebug
+        run: bash ./gradlew assembleDebug
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
