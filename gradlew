@@ -1,0 +1,1 @@
+#!/usr/bin/env sh\n# Simple wrapper that invokes system gradle\nexec gradle "$@"\n
