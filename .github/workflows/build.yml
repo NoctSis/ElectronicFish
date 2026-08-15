@@ -19,10 +19,15 @@ jobs:
           distribution: "temurin"
           java-version: "17"
 
-      # ★ 关键改动：用 bash 解释器运行 gradlew
-      - name: Build APK
-        run: bash ./gradlew assembleDebug
+      # ======== 编译步骤，加入详细日志 ========
+      - name: Build APK (verbose)
+        run: |
+          echo "=== 开始执行 gradlew assembleDebug ==="
+          bash ./gradlew --no-daemon --stacktrace assembleDebug
+          echo "=== 编译结束，列出输出目录 ==="
+          ls -R app/build/outputs/apk/debug
 
+      # ======== 上传 artifact，确保路径正确 ========
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
